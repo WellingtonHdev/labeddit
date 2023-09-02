@@ -1,13 +1,13 @@
 import { Database } from 'better-sqlite3';
 
-interface User {
-    id: number;
-    username: string;
-    password: string;
+export interface Users {
+  id: number;
+  username: string;
+  password: string;
 }
 
-const createUserTable = async (db: Database) => {
-    await db.exec(`
+export const createUser = async (db: Database) => {
+  await db.exec(`
     CREATE TABLE IF NOT EXISTS users (
       id INTEGER PRIMARY KEY,
       username TEXT NOT NULL,
@@ -16,4 +16,4 @@ const createUserTable = async (db: Database) => {
   `);
 };
 
-export { User, createUserTable };
+
